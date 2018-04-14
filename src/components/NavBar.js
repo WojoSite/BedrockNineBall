@@ -8,7 +8,7 @@ const NavBar = () => (
 
   <ul className={navstyles.navlinks}>
     <li>
-      <NavLink className={navstyles.navlink} activeClassName={navstyles.active} to="/calculator">Race Calculator</NavLink>
+      <NavLink className={navstyles.navlink} activeClassName={navstyles.active} to="/calculator">Calculator</NavLink>
     </li>
 
     <li>
