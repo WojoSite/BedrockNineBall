@@ -169,7 +169,7 @@ module.exports = [
   },
   {
     number: 6,
-    captain: "Andy Fort",
+    captain: "Tim Hays",
     players: [
       {
         id: 1,
