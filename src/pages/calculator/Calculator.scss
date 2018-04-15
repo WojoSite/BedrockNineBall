@@ -1,0 +1,45 @@
+
+.selectContainer{
+  width: 250px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  .selectteam{
+    display: inline-block;
+  }
+}
+
+
+.tableDiv{
+  margin: 20px auto;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  border-radius: 4px;
+
+  .calctable{
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+
+    td{
+      height: 30px;
+      text-align: center;
+      border: 1px solid lightgray;
+    }
+
+    .tablecell{
+      min-width: 65px;
+      font-weight: 400;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: bold;
+    }
+  }
+  .note{
+    margin: 10px 0 0 0;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+  }
+}

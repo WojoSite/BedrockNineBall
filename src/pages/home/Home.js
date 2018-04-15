@@ -1,6 +1,10 @@
 import React from 'react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import './Home.scss';
 
-const Home = () => <h2>Home<FontAwesomeIcon icon="coffee" className="animated lightSpeedIn"/></h2>;
+const Home = () => <div>
+  <h2>Home</h2>
+  <img src="/9ball.png" className="animated rollIn"/>
+</div>
 
 export default Home;

@@ -1,5 +1,6 @@
 import React from 'react';
 import data from '../../data/leagueData.js';
+import calculator from './Calculator.scss';
 
 class TeamSelect extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class TeamSelect extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className={calculator.selectteam}>
         <label>
           <select value={this.state.value} onChange={this.handleChange}>
             <option value="Select Team" disabled>Select Team</option>
@@ -60,9 +61,9 @@ function RaceGrid(props){
 
   function NameCell(props) {
     if (!props.name) {
-      return <td></td>;
+      return;
     }
-    return <td>{props.name}</td>;
+    return <td className={calculator.tablecell}>{props.name}</td>;
   }
 
   function NumberCell(props) {
@@ -225,8 +226,9 @@ function RaceGrid(props){
     return <NumberCell playera={aRating} playerb={bRating}/>;
   }
 
-    return (
-      <table>
+  return (
+    <div className={calculator.tableDiv}>
+      <table className={calculator.calctable}>
         <tbody>
           <tr>
             <td></td>
@@ -247,7 +249,10 @@ function RaceGrid(props){
           {renderTR(6)}
         </tbody>
       </table>
-    );
+      <p className={calculator.note}>Team {teamA.number} players are top and first number. Team {teamB.number} players are left and second number.</p>
+      <p className={calculator.note}>Click on the race for detail</p>
+    </div>
+  );
 }
 
 class Calculator extends React.Component {
@@ -315,8 +320,9 @@ class Calculator extends React.Component {
     return (
       <div>
         <h2>Race Calculator</h2>
-        <div>
+        <div className={calculator.selectContainer}>
           <TeamSelect teams={this.state.teams} onTeamChange={this.handleTeamChange} form='a'/>
+          <span>vs.</span>
           <TeamSelect teams={this.state.teams} onTeamChange={this.handleTeamChange} form='b'/>
         </div>
 
