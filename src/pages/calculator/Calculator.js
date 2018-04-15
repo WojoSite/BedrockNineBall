@@ -41,8 +41,22 @@ function RaceGrid(props){
   if (!props.show) {
     return null;
   }
+
   const teamA = props.teama;
   const teamB = props.teamb;
+
+  function TableRow(props){
+    return <tr>
+              {renderName(props.id, "b")}
+              {renderTD(0)}
+              {renderTD(1)}
+              {renderTD(2)}
+              {renderTD(3)}
+              {renderTD(4)}
+              {renderTD(5)}
+              {renderTD(6)}
+          </tr>;
+  }
 
   function NameCell(props) {
     if (!props.name) {
@@ -51,28 +65,40 @@ function RaceGrid(props){
     return <td>{props.name}</td>;
   }
 
-  function renderName(i, team){
+  function NumberCell(props) {
+    return <td>{props.id}</td>;
+  }
 
+  function renderName(i, team){
     if (team === "a") {
       if (!teamA.players[i]) {
-        return <td></td>;
+        return;
       } else {
         return <NameCell name={teamA.players[i].firstName} />;
       }
     }
-
     if (team === "b") {
       if (!teamB.players[i]) {
-        return <td></td>;
+        return;
       } else {
         return <NameCell name={teamB.players[i].firstName} />;
       }
     }
   }
 
-  // function NumberCell(props) {
-  //   return <td>Welcome back!</td>;
-  // }
+  function renderTR(i){
+    if (!teamB.players[i]) {
+      return;
+    }
+    return <TableRow id={i}/>;
+  }
+
+  function renderTD(i){
+    if (!teamA.players[i]) {
+      return;
+    }
+    return <NumberCell id={i} />;
+  }
 
     return (
       <table>
@@ -87,76 +113,13 @@ function RaceGrid(props){
             {renderName(5, "a")}
             {renderName(6, "a")}
           </tr>
-          <tr>
-            {renderName(0, "b")}
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-          </tr>
-          <tr>
-            {renderName(1, "b")}
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-            <td>11</td>
-            <td>12</td>
-            <td>13</td>
-            <td>14</td>
-          </tr>
-          <tr>
-            {renderName(2, "b")}
-            <td>15</td>
-            <td>16</td>
-            <td>17</td>
-            <td>18</td>
-            <td>19</td>
-            <td>20</td>
-            <td>21</td>
-          </tr>
-          <tr>
-            {renderName(3, "b")}
-            <td>22</td>
-            <td>23</td>
-            <td>24</td>
-            <td>25</td>
-            <td>26</td>
-            <td>27</td>
-            <td>28</td>
-          </tr>
-          <tr>
-            {renderName(4, "b")}
-            <td>29</td>
-            <td>30</td>
-            <td>31</td>
-            <td>32</td>
-            <td>33</td>
-            <td>34</td>
-            <td>35</td>
-          </tr>
-          <tr>
-            {renderName(5, "b")}
-            <td>36</td>
-            <td>37</td>
-            <td>38</td>
-            <td>39</td>
-            <td>40</td>
-            <td>41</td>
-            <td>42</td>
-          </tr>
-          <tr>
-            {renderName(6, "b")}
-            <td>43</td>
-            <td>44</td>
-            <td>45</td>
-            <td>46</td>
-            <td>47</td>
-            <td>48</td>
-            <td>49</td>
-          </tr>
+          {renderTR(0)}
+          {renderTR(1)}
+          {renderTR(2)}
+          {renderTR(3)}
+          {renderTR(4)}
+          {renderTR(5)}
+          {renderTR(6)}
         </tbody>
       </table>
     );
