@@ -48,13 +48,13 @@ function RaceGrid(props){
   function TableRow(props){
     return <tr>
               {renderName(props.id, "b")}
-              {renderTD(0)}
-              {renderTD(1)}
-              {renderTD(2)}
-              {renderTD(3)}
-              {renderTD(4)}
-              {renderTD(5)}
-              {renderTD(6)}
+              {renderTD(0, props.id)}
+              {renderTD(1, props.id)}
+              {renderTD(2, props.id)}
+              {renderTD(3, props.id)}
+              {renderTD(4, props.id)}
+              {renderTD(5, props.id)}
+              {renderTD(6, props.id)}
           </tr>;
   }
 
@@ -66,7 +66,129 @@ function RaceGrid(props){
   }
 
   function NumberCell(props) {
-    return <td>{props.id}</td>;
+    return <td>{getRace(props.playera, props.playerb)}</td>;
+  }
+
+  function getRace(rank1, rank2) {
+    if (!rank1 || !rank2) { return("-"); }
+
+    let tier = 0;
+    let high;
+    let diff = rank1 - rank2;
+
+
+    if (diff >= 0) {
+      high = rank1;
+    } else {
+      high = rank2;
+    }
+
+    if (high < 400) {
+      tier = 1;
+    } else if (high > 550) {
+      tier = 3;
+    } else {
+      tier = 2;
+    }
+
+
+    let race1 = "";
+    let race2 = "";
+    switch (tier) {
+      case 1:
+        switch (true) {
+          case Math.abs(diff) < 35:
+            race1 = "3";
+            race2 = "3";
+            break;
+          case Math.abs(diff) < 125:
+            race1 = "3";
+            race2 = "2";
+            break;
+          default:
+            race1 = "3";
+            race2 = "1";
+            break;
+        }
+        break;
+      case 2:
+        switch (true) {
+          case Math.abs(diff) < 45:
+            race1 = "4";
+            race2 = "4";
+            break;
+          case Math.abs(diff) < 81:
+            race1 = "4";
+            race2 = "3";
+            break;
+            case Math.abs(diff) < 113:
+            race1 = "5";
+            race2 = "3";
+            break;
+          case Math.abs(diff) < 148:
+            race1 = "4";
+            race2 = "2";
+            break;
+          case Math.abs(diff) < 176:
+            race1 = "5";
+            race2 = "2";
+            break;
+          default:
+            race1 = "6";
+            race2 = "2";
+            break;
+        }
+        break;
+      case 3:
+        switch (true) {
+          case Math.abs(diff) < 35:
+            race1 = "5";
+            race2 = "5";
+            break;
+          case Math.abs(diff) < 63:
+            race1 = "5";
+            race2 = "4";
+            break;
+          case Math.abs(diff) < 81:
+            race1 = "6";
+            race2 = "4";
+            break;
+          case Math.abs(diff) < 110:
+            race1 = "5";
+            race2 = "3";
+            break;
+          case Math.abs(diff) < 132:
+            race1 = "6";
+            race2 = "3";
+            break;
+          case Math.abs(diff) < 176:
+            race1 = "7";
+            race2 = "3";
+            break;
+          case Math.abs(diff) < 200:
+            race1 = "8";
+            race2 = "3";
+            break;
+          case Math.abs(diff) < 220:
+            race1 = "7";
+            race2 = "2";
+            break;
+          default:
+            race1 = "8";
+            race2 = "2";
+            break;
+        }
+        break;
+      default:
+        tier = "fart";
+        break;
+    }
+
+    if (diff < 0) {
+      return( race2 + "-" + race1 );
+    } else {
+      return( race1 + "-" + race2 );
+    }
   }
 
   function renderName(i, team){
@@ -93,11 +215,14 @@ function RaceGrid(props){
     return <TableRow id={i}/>;
   }
 
-  function renderTD(i){
-    if (!teamA.players[i]) {
+  function renderTD(a,b){
+    if (!teamA.players[a]) {
       return;
     }
-    return <NumberCell id={i} />;
+    let aRating = teamA.players[a].rating;
+    let bRating = teamB.players[b].rating;
+
+    return <NumberCell playera={aRating} playerb={bRating}/>;
   }
 
     return (
@@ -201,126 +326,5 @@ class Calculator extends React.Component {
     );
   }
 }
-
-// function getRace(rank1, rank2) {
-//   if (!rank1 || !rank2) { return("-"); }
-//
-//   var diff = rank1 - rank2;
-//   var tier = 0;
-//   var high;
-//
-//   if (diff >= 0) {
-//     high = rank1;
-//   } else {
-//     high = rank2;
-//   }
-//
-//   if (high < 400) {
-//     tier = 1;
-//   } else if (high > 550) {
-//     tier = 3;
-//   } else {
-//     tier = 2;
-//   }
-//
-//
-//   var race1 = "";
-//   var race2 = "";
-//   switch (tier) {
-//     case 1:
-//       switch (true) {
-//         case Math.abs(diff) < 35:
-//           race1 = "3";
-//           race2 = "3";
-//           break;
-//         case Math.abs(diff) < 125:
-//           race1 = "3";
-//           race2 = "2";
-//           break;
-//         default:
-//           race1 = "3";
-//           race2 = "1";
-//           break;
-//       }
-//       break;
-//     case 2:
-//       switch (true) {
-//         case Math.abs(diff) < 45:
-//           race1 = "4";
-//           race2 = "4";
-//           break;
-//         case Math.abs(diff) < 81:
-//           race1 = "4";
-//           race2 = "3";
-//           break;
-//           case Math.abs(diff) < 113:
-//           race1 = "5";
-//           race2 = "3";
-//           break;
-//         case Math.abs(diff) < 148:
-//           race1 = "4";
-//           race2 = "2";
-//           break;
-//         case Math.abs(diff) < 176:
-//           race1 = "5";
-//           race2 = "2";
-//           break;
-//         default:
-//           race1 = "6";
-//           race2 = "2";
-//           break;
-//       }
-//       break;
-//     case 3:
-//       switch (true) {
-//         case Math.abs(diff) < 35:
-//           race1 = "5";
-//           race2 = "5";
-//           break;
-//         case Math.abs(diff) < 63:
-//           race1 = "5";
-//           race2 = "4";
-//           break;
-//         case Math.abs(diff) < 81:
-//           race1 = "6";
-//           race2 = "4";
-//           break;
-//         case Math.abs(diff) < 110:
-//           race1 = "5";
-//           race2 = "3";
-//           break;
-//         case Math.abs(diff) < 132:
-//           race1 = "6";
-//           race2 = "3";
-//           break;
-//         case Math.abs(diff) < 176:
-//           race1 = "7";
-//           race2 = "3";
-//           break;
-//         case Math.abs(diff) < 200:
-//           race1 = "8";
-//           race2 = "3";
-//           break;
-//         case Math.abs(diff) < 220:
-//           race1 = "7";
-//           race2 = "2";
-//           break;
-//         default:
-//           race1 = "8";
-//           race2 = "2";
-//           break;
-//       }
-//       break;
-//     default:
-//       tier = "fart";
-//       break;
-//   }
-//
-//   if (diff < 0) {
-//     return( race2 + " | " + race1 );
-//   } else {
-//     return( race1 + " | " + race2 );
-//   }
-// }
 
 export default Calculator;
