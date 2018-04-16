@@ -1,0 +1,147 @@
+.app{
+
+  .app-header{
+
+    .navbar{
+      height: 60px;
+      border: 1px solid green;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+
+      .navlinks{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .navlink{
+          margin-left: 10px;
+        }
+
+        a.active{
+          color: red;
+        }
+      }
+    }
+
+    .home-container{
+
+      h2{
+        text-align: center;
+      }
+
+      .home-image-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .nine-ball-logo{
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+
+    .calculator-container{
+
+      .calc-header{
+        text-align: center;
+      }
+
+      .select-container{
+        width: 250px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+
+        .select-team{
+          display: inline-block;
+        }
+      }
+
+      .table-div{
+        margin: 20px auto;
+        padding: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.4);
+        border-radius: 4px;
+        max-width: 600px;
+
+        .calc-table{
+          border-collapse: collapse;
+          width: 100%;
+          table-layout: fixed;
+
+          td{
+            height: 30px;
+            text-align: center;
+            border: 1px solid lightgray;
+          }
+
+          .table-cell{
+            min-width: 65px;
+            font-weight: 400;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: bold;
+          }
+        }
+        .note{
+          margin: 10px 0 0 0;
+          font-size: 12px;
+          font-style: italic;
+          text-align: center;
+        }
+      }
+    }
+
+    .schedule-container{
+
+      .schedule-header{
+        text-align: center;
+      }
+      .container{
+        display: flex;
+        flex-flow: row wrap;
+        max-width: 1150px;
+        margin: auto;
+
+        .box{
+          padding: 20px;
+          width: 200px;
+          border: 1px solid red;
+          margin: 20px;
+          border-radius: 4px
+        }
+      }
+    }
+
+    .teams-container{
+      .team-container{
+        display: block;
+        padding: 20px;
+        max-width: 700px;
+        margin: 20px auto;
+        border-radius: 4px;
+        border: 1px solid blue;
+
+        .team{
+          margin: 0 0 5px 0;
+        }
+
+        .captain{
+          margin: 0 0 5px 0;
+        }
+
+        .players-list{
+          margin: 0;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+}

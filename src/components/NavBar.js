@@ -1,26 +1,25 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import navstyles from './NavBar.scss';
 
 const NavBar = () => (
-  <div className={navstyles.navbar}>
-    <NavLink className={navstyles.navlink} activeClassName={navstyles.active} exact to="/">Home</NavLink>
+  <div className="navbar">
+    <NavLink className="navlink" activeClassName="active" exact to="/">Home</NavLink>
 
-  <ul className={navstyles.navlinks}>
+  <ul className="navlinks">
     <li>
-      <NavLink className={navstyles.navlink} activeClassName={navstyles.active} to="/calculator">Calculator</NavLink>
+      <NavLink className="navlink" activeClassName="active" to="/calculator">Calculator</NavLink>
     </li>
 
     <li>
-      <NavLink className={navstyles.navlink} activeClassName={navstyles.active} to="/schedule">Schedule</NavLink>
+      <NavLink className="navlink" activeClassName="active" to="/schedule">Schedule</NavLink>
     </li>
 
     <li>
-      <NavLink className={navstyles.navlink} activeClassName={navstyles.active} to="/teams">Teams</NavLink>
+      <NavLink className="navlink" activeClassName="active" to="/teams">Teams</NavLink>
     </li>
 
     <li>
-      <NavLink className={navstyles.navlink} activeClassName={navstyles.active} to="/rules">Rules</NavLink>
+      <NavLink className="navlink" activeClassName="active" to="/rules">Rules</NavLink>
     </li>
   </ul>
   </div>

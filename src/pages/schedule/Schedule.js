@@ -1,5 +1,4 @@
 import React from 'react';
-import schedule from './Schedule.scss';
 import scheduleData from '../../data/scheduleData.js';
 
 function MatchList(props) {
@@ -14,7 +13,7 @@ function MatchList(props) {
 function RegularSeason(props){
   const regular = props.reg;
   const matchDays = regular.map((match) =>
-    <div key={match.week} className={schedule.box}>
+    <div key={match.week} className="box">
       <p>Date: {match.date}</p>
       <p>Week: {match.week}</p>
       <div>Matches:
@@ -23,14 +22,14 @@ function RegularSeason(props){
     </div>
   );
   return (
-    <div className={schedule.container}>{matchDays}</div>
+    <div className="container">{matchDays}</div>
   );
 }
 
 function Playoffs(props){
   const playoffs = props.play;
   const matchDays = playoffs.map((match) =>
-    <div key={match.week} className={schedule.box}>
+    <div key={match.week} className="box">
       <p>Date: {match.date}</p>
       <p>Week: {match.week}</p>
       <div>Matches:
@@ -39,7 +38,7 @@ function Playoffs(props){
     </div>
   );
   return (
-    <div className={schedule.container}>{matchDays}</div>
+    <div className="container">{matchDays}</div>
   );
 }
 
@@ -53,8 +52,8 @@ class Schedule extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Schedule: Spring/Summer 2018</h2>
+      <div className="schedule-container">
+        <h2 className="schedule-header">Schedule: Spring/Summer 2018</h2>
         <RegularSeason reg={this.state.scheduleData['regular']}/>
 
       <h3>Playoffs</h3>

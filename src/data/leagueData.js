@@ -245,7 +245,7 @@ module.exports = [
       },
       {
         id: 5,
-        firstName: "Jennier",
+        firstName: "Jennfer",
         lastName: "Chung",
         rating: 386,
       },

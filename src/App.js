@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './App.scss';
+// import './App.scss';
+// import './index.scss';
 
 import fontawesome from '@fortawesome/fontawesome'
 import brands from '@fortawesome/fontawesome-free-brands'
@@ -19,8 +20,8 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 fontawesome.library.add(brands, faCheckSquare, faCoffee)
 
 const App = () => (
-  <div className={styles.app}>
-    <header className={styles.header}>
+  <div className="app">
+    <header className="app-header">
       <Router>
         <div>
           <NavBar />

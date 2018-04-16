@@ -174,24 +174,24 @@ module.exports = {
               ]
             })
           },
-          {
-            test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
-              fallback: 'style-loader',
-                use: [
-                  {
-                    loader: 'css-loader',
-                    options: {
-                      module: true,
-                      sourceMap: true,
-                      importLoaders: 2,
-                      localIdentName: '[name]__[local]__[has:base64:5]'
-                    }
-                  },
-                  'sass-loader'
-                ]
-            })
-          },
+          // {
+          //   test: /\.scss$/,
+          //   use: ExtractTextPlugin.extract({
+          //     fallback: 'style-loader',
+          //       use: [
+          //         {
+          //           loader: 'css-loader',
+          //           options: {
+          //             module: true,
+          //             sourceMap: true,
+          //             importLoaders: 2,
+          //             localIdentName: '[name]__[local]__[has:base64:5]'
+          //           }
+          //         },
+          //         'sass-loader'
+          //       ]
+          //   })
+          // },
 
           // {
           //   test: /\.css$/,
@@ -225,14 +225,14 @@ module.exports = {
           //     },
           //   ],
           // },
-          // {
-          //   test: /\.scss$/,
-          //   loaders: [
-          //     require.resolve('style-loader'),
-          //     require.resolve('css-loader'),
-          //     require.resolve('sass-loader')
-          //   ]
-          // },
+          {
+            test: /\.scss$/,
+            loaders: [
+              require.resolve('style-loader'),
+              require.resolve('css-loader'),
+              require.resolve('sass-loader')
+            ]
+          },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
           // In production, they would get copied to the `build` folder.

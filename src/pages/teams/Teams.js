@@ -1,6 +1,5 @@
 import React from 'react';
 import data from '../../data/leagueData.js';
-import teamstyles from './Teams.scss';
 
 
 function Team(props) {
@@ -10,10 +9,10 @@ function Team(props) {
   );
 
   return (
-    <a className={teamstyles.teamcontainer}>
-      <h3 className={teamstyles.team}>Team: {props.team}</h3>
-      <h5 className={teamstyles.captain}>Captain: {props.captain}</h5>
-      <ul className={teamstyles.playerslist}>{playerList}</ul>
+    <a className="team-container">
+      <h3 className="team">Team: {props.team}</h3>
+      <h5 className="captain">Captain: {props.captain}</h5>
+      <ul className="players-list">{playerList}</ul>
     </a>
   );
 }
@@ -34,7 +33,7 @@ class Teams extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="teams-container">
         <h2>Teams</h2>
         {this.renderTeams(0)}
         {this.renderTeams(1)}

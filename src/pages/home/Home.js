@@ -1,10 +1,10 @@
 import React from 'react';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import './Home.scss';
 
-const Home = () => <div>
+const Home = () => <div className="home-container">
   <h2>Home</h2>
-  <img src="/9ball.png" className="animated rollIn"/>
+  <div className="home-image-container">
+    <img src="/9ball.png" className="nine-ball-logo animated rollIn" alt="9-BALL!"/>
+  </div>
 </div>
 
 export default Home;
