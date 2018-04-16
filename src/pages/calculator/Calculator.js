@@ -66,7 +66,7 @@ function RaceGrid(props){
   }
 
   function NumberCell(props) {
-    return <td>{getRace(props.playera, props.playerb)}</td>;
+    return <td className="animated rubberBand">{getRace(props.playera, props.playerb)}</td>;
   }
 
   function getRace(rank1, rank2) {
@@ -226,7 +226,7 @@ function RaceGrid(props){
   }
 
   return (
-    <div className="table-div animated zoomInUp">
+    <div className="table-div animated bounceInUp">
       <table className="calc-table">
         <tbody>
           <tr>
