@@ -249,7 +249,6 @@ function RaceGrid(props){
         </tbody>
       </table>
       <p className="note">Team {teamA.number} players are top and first number. Team {teamB.number} players are left and second number.</p>
-      <p className="note">Click on the race for detail</p>
     </div>
   );
 }
